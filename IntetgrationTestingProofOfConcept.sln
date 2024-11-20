@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApp", "ToDoApp\ToDoApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAssertionsDemo", "FluentAssertionsDemo\FluentAssertionsDemo.csproj", "{79DF19E3-AAB6-402B-BBDE-F8C5B8B3F706}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoAppDataLayerTesting", "TodoAppDataLayerTesting\TodoAppDataLayerTesting.csproj", "{D0295EBF-43EF-4F90-867E-A6E951E00689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{79DF19E3-AAB6-402B-BBDE-F8C5B8B3F706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79DF19E3-AAB6-402B-BBDE-F8C5B8B3F706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79DF19E3-AAB6-402B-BBDE-F8C5B8B3F706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0295EBF-43EF-4F90-867E-A6E951E00689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0295EBF-43EF-4F90-867E-A6E951E00689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0295EBF-43EF-4F90-867E-A6E951E00689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0295EBF-43EF-4F90-867E-A6E951E00689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
