@@ -49,7 +49,7 @@ namespace ToDoApp.Controllers
             return CreatedAtAction(nameof(GetTodoItemAsync), new { id = todoItem.Id }, todoItem);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutTodoItemAsync(int id, TodoItem todoItem)
         {
             bool TodoItemExists = await _context.TodoItems.AnyAsync(t => t.Id == id);
