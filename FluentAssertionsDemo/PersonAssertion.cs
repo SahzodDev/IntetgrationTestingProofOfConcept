@@ -33,12 +33,12 @@ namespace FluentAssertionsDemo
             return new PersonAssertions(person);
         }
 
-        public static AndConstraint<PersonAssertions> HaveValidFirstName(this PersonAssertions assertions)
-        {
-            var firstName = assertions.Subject.FirstName;
-            Execute.Assertion
-                .ForCondition(!string.IsNullOrEmpty(firstName)&&firstName.Length >= 2)
-                .FailWith("Expected");
-        }
+        //public static AndConstraint<PersonAssertions> HaveValidFirstName(this PersonAssertions assertions)
+        //{
+        //    var firstName = assertions.Subject.FirstName;
+        //    Execute.Assertion
+        //        .ForCondition(!string.IsNullOrEmpty(firstName)&&firstName.Length >= 2)
+        //        .FailWith("Expected");
+        //}
     }
 }

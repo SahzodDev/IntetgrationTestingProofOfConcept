@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="70a4a8d2-8d03-464d-84c4-8697050d9902" name="shohzod_irgas@EPTRIZMW004D 2024-11-22 12:28:48" runUser="EPAM\shohzod_irgas" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2024-11-22T12:28:48.5241815+03:00" queuing="2024-11-22T12:28:48.5241819+03:00" start="2024-11-22T12:28:43.5534001+03:00" finish="2024-11-22T12:28:48.5277811+03:00" />
+  <TestSettings name="default" id="801a63be-6bc8-4536-8e9e-336193ba7258">
+    <Deployment runDeploymentRoot="shohzod_irgas_EPTRIZMW004D_2024-11-22_12_28_48" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="de7db531-fe4a-4fad-88f0-4ac2c6b526b9" testId="338a7136-839a-79b7-7e7b-6e3768143b81" testName="FluentAssertionsDemo.UnitTest1.TestToCheckOneVariableLessThanOther" computerName="EPTRIZMW004D" duration="00:00:00.0054157" startTime="2024-11-22T12:28:48.3720665+03:00" endTime="2024-11-22T12:28:48.3720813+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de7db531-fe4a-4fad-88f0-4ac2c6b526b9" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="FluentAssertionsDemo.UnitTest1.TestToCheckOneVariableLessThanOther" storage="c:\users\shohzod_irgas\source\repos\unitandintegrationtestingproofofconcept\fluentassertionsdemo\bin\release\net7.0\fluentassertionsdemo.dll" id="338a7136-839a-79b7-7e7b-6e3768143b81">
+      <Execution id="de7db531-fe4a-4fad-88f0-4ac2c6b526b9" />
+      <TestMethod codeBase="C:\Users\shohzod_irgas\source\repos\UnitAndIntegrationTestingProofOfConcept\FluentAssertionsDemo\bin\Release\net7.0\FluentAssertionsDemo.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="FluentAssertionsDemo.UnitTest1" name="TestToCheckOneVariableLessThanOther" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="338a7136-839a-79b7-7e7b-6e3768143b81" executionId="de7db531-fe4a-4fad-88f0-4ac2c6b526b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 7.0.20)&#xD;
+[xUnit.net 00:00:01.98]   Discovering: FluentAssertionsDemo&#xD;
+[xUnit.net 00:00:02.00]   Discovered:  FluentAssertionsDemo&#xD;
+[xUnit.net 00:00:02.00]   Starting:    FluentAssertionsDemo&#xD;
+[xUnit.net 00:00:02.08]   Finished:    FluentAssertionsDemo&#xD;
+</StdOut>
+    </Output>
+    <CollectorDataEntries>
+      <Collector agentName="EPTRIZMW004D" uri="datacollector://microsoft/CoverletCodeCoverage/1.0" collectorDisplayName="XPlat code coverage">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="EPTRIZMW004D\coverage.cobertura.xml"></A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+</TestRun>
