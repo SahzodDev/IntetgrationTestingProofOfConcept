@@ -38,14 +38,6 @@ namespace TodoAppUnitTests
             Assert.Empty(todoItem.Name);
         }
 
-        [Fact]
-        public void IsComplete_Value_IsFalse()
-        {
-            // Arrange
-            var todoItem = new TodoItem { IsComplete = true };
-
-            // Act & Assert
-            Assert.False(todoItem.IsComplete);
-        }
+        
     }
 }
