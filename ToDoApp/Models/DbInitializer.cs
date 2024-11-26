@@ -18,7 +18,8 @@ namespace ToDoApp.Models
             {
                 new TodoItem {Name = "Learn C#"},
                 new TodoItem {Name = "Learn ASP.NET Core"},
-                new TodoItem {Name = "Learn Build a web app"}
+                new TodoItem {Name = "Learn Build a web app"},
+                new TodoItem {Name = "Learn Azure Cloud"}
             };
 
             foreach (var todo in todos)
