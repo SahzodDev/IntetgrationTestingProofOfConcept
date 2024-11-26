@@ -36,5 +36,16 @@ namespace TodoAppUnitTests
             // Act & Assert
             Assert.Empty(todoItem.Name);
         }
+
+        [Fact]
+        public void Name_Value_IsNotEmpty()
+        {
+            // Arrange
+            var todoItem = new TodoItem();
+            todoItem.Name = String.Empty;
+
+            // Act & Assert
+            Assert.NotEmpty(todoItem.Name);
+        }
     }
 }
