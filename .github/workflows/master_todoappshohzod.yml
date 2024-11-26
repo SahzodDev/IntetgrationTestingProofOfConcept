@@ -1,53 +1,83 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - TodoAppShohzod
+name: .NET CI/CD
 
 on:
   push:
-    branches:
-      - master
-  workflow_dispatch:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
-  build:
-    runs-on: windows-latest
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    services:
+      api:
+        image: sahzodus/mytodo-api-dockerhub
+        ports:
+          - 5023/tcp # Adjust the port if your API uses a different port
 
     steps:
-      - uses: actions/checkout@v4
+      # Checkout the code
+      - uses: actions/checkout@v3
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v4
+      # Log in to Docker Hub
+      - name: Log in to Docker Hub
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      # Set up .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: 7.0.x
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      # Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+      # Build the project
+      - name: Build
+        run: dotnet build --no-restore
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
+      # Run tests
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+
+      # Clean up Docker login credentials
+      - name: Clean up Docker login credentials
+        run: docker logout
+
+      # Publish the project
+      - name: Publish
+        run: dotnet publish -c Release -o ${{ github.workspace }}/myapp
+
+      # Upload artifact for deployment
+      - name: Upload artifact for deployment
+        uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{ github.workspace }}/myapp
 
   deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    permissions:
-      id-token: write #This is required for requesting the JWT
+    runs-on: ubuntu-latest
+    needs: build-and-deploy
 
     steps:
+      # Checkout the code
+      - uses: actions/checkout@v3
+
+      # Set up .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      # Download artifact from build job
       - name: Download artifact from build job
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: .net-app
-      
+
+      # Login to Azure
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -55,6 +85,7 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F26AB7C6E0FD4A4EA5AD07E4C318DEF3 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BCEDDDF63DD3468DBCE0BBD357BDE61C }}
 
+      # Deploy to Azure Web App
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
@@ -62,4 +93,3 @@ jobs:
           app-name: 'TodoAppShohzod'
           slot-name: 'Production'
           package: .
-          
