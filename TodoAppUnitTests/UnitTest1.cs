@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using ToDoApp.Models;
 
 namespace TodoAppUnitTests
@@ -38,14 +39,13 @@ namespace TodoAppUnitTests
         }
 
         [Fact]
-        public void Name_Value_IsNotEmpty()
+        public void IsComplete_Value_IsFalse()
         {
             // Arrange
-            var todoItem = new TodoItem();
-            todoItem.Name = String.Empty;
+            var todoItem = new TodoItem { IsComplete = true };
 
             // Act & Assert
-            Assert.NotEmpty(todoItem.Name);
+            Assert.False(todoItem.IsComplete);
         }
     }
 }
